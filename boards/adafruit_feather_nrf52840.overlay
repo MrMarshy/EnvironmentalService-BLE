@@ -1,0 +1,29 @@
+// To get started, press Ctrl+Space to bring up the completion menu and view the available nodes.
+
+// You can also use the buttons in the sidebar to perform actions on nodes.
+// Actions currently available include:
+
+// * Enabling / disabling the node
+// * Adding the bus to a bus
+// * Removing the node
+// * Connecting ADC channels
+
+// For more help, browse the DeviceTree documentation at https://docs.zephyrproject.org/latest/guides/dts/index.html
+// You can also visit the nRF DeviceTree extension documentation at https://nrfconnect.github.io/vscode-nrf-connect/devicetree/nrfdevicetree.html
+
+&i2c0 {
+	bme280: bme280@77 {
+		/* 0x76 - SDO <-> GND */
+		/* 0x77 - SDO <-> VCC */
+		compatible = "bosch,bme280";
+		status = "okay";
+		reg = <0x77>;
+	};
+	bh1750: bh1750@23{
+		/* ADDR_LO  0x23    /* I2C address when ADDR pin floating/low */
+		/* ADDR_HI  0x5C    /* I2C address when ADDR pin is high */
+		compatible = "rohm,bh1750";
+		status = "okay";
+		reg = <0x23>;
+	};
+};
